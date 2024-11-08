@@ -11,7 +11,7 @@ import google.generativeai as genai
 
 # Load environment variables
 load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GEMINI_API_KEY = "AIzaSyCId9px4yRNrG9bsPEuENCIFo8t-XEERws"
 genai.configure(api_key=GEMINI_API_KEY)
 
 class StockScreener:
