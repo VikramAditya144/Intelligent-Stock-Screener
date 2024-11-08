@@ -1,72 +1,181 @@
 # Intelligent Stock Screener
 
-A web-based stock screening tool inspired by Screener.in. It allows you to filter and analyze a dataset of stocks based on various financial parameters.
+A powerful web-based stock screening tool built with Streamlit and Python, inspired by Screener.in. This application allows users to filter and analyze stocks based on various financial metrics, visualize data distributions, and get AI-powered insights using Google's Gemini Pro.
+
+🔗 Live Demo: [Stock Screener Application](https://vikramaditya144-intelligent-stock-screener-app-qpvfp6.streamlit.app/)
+
+https://www.loom.com/share/533c924bafc346daa2f47a24f2c67dda
 
 ## Features
 
-- User-friendly interface with query-like filtering similar to Screener.in
-- Support for various conditions (>, <, =) on metrics like Market Capitalization, P/E Ratio, ROE, etc.
-- AND-only logic for filtering (all conditions must be met)
-- Display of screened stocks in a table format
-- Sorting functionality on each column
-- Pagination for displaying large result sets (more than 10 stocks)
-- Optional integration with Google Generative AI (requires API key) for analyzing screened data (beta feature)
-- Responsive design for smooth operation on both desktops and mobile devices
+### 1. Advanced Stock Screening
+- Filter stocks using multiple conditions with AND logic
+- Support for various comparison operators (>, <, >=, <=, =)
+- Real-time filtering and result updates
+- Comprehensive financial metrics support:
+  - Market Capitalization
+  - P/E Ratio
+  - ROE (Return on Equity)
+  - Debt-to-Equity Ratio
+  - Dividend Yield
+  - Revenue Growth
+  - EPS Growth
+  - Current Ratio
+  - Gross Margin
 
-## Getting Started
+### 2. Data Visualization
+- Interactive distribution plots for each metric
+- Correlation heatmap for understanding relationships between metrics
+- Summary statistics for filtered results
+- Responsive and interactive charts using Plotly
 
-### Clone the repository:
+### 3. AI-Powered Analysis
+- Integration with Google's Gemini Pro API
+- Natural language queries about your stock data
+- Detailed financial analysis and insights
+- Professional recommendations based on data patterns
+
+### 4. User Interface
+- Clean and intuitive design
+- Sidebar with helpful examples and metric guides
+- Tabbed interface for different functionalities
+- Responsive layout that works on both desktop and mobile
+
+## Technical Stack
+
+- **Frontend Framework**: Streamlit
+- **Data Processing**: Pandas, NumPy
+- **Visualization**: Plotly Express, Plotly Graph Objects
+- **Statistical Analysis**: SciPy
+- **AI Integration**: Google Generative AI (Gemini Pro)
+- **Environment Management**: python-dotenv
+
+## Installation
+
+1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/stock-sleuth.git
+git clone [repository-url]
+cd [repository-name]
 ```
 
-### Install dependencies:
+2. Create a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. Install required packages:
 ```bash
 pip install -r requirements.txt
 ```
 
-### (Optional) Set up Google Generative AI (beta feature):
-1. Create a Google Cloud Project and enable the Generative AI API.
-2. Obtain an API key and store it in a .env file named `.env.local` with the following line:
-   ```
-   GEMINI_API_KEY=your_api_key
-   ```
-
-### Run the application:
-```bash
-streamlit run main.py
+4. Set up environment variables:
+Create a `.env` file in the root directory and add:
+```
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-## Usage
+5. Run the application:
+```bash
+streamlit run app.py
+```
 
-1. Access the application in your web browser at http://localhost:8501.
-2. Upload your stock data CSV file in the sidebar.
-3. Enter your filtering conditions in the "Stock Screening" tab using the query format (e.g., Market Capitalization > 100 AND ROE > 15).
-4. Click the "Screen Stocks" button to apply the filters.
-5. The filtered stocks will be displayed in a table along with summary statistics and data visualization options.
-6. (Optional) In the "Talk with CSV" tab, you can ask questions about your data (e.g., "What are the top 5 stocks by market cap?") and the Generative AI model (if enabled) will attempt to provide an analysis.
+## Usage Guide
 
-## Note
+### Basic Stock Screening
 
-- The Generative AI analysis is a beta feature and may not always produce accurate results.
-- Ensure your stock data CSV file includes the following columns:
-  - Market Capitalization (Billion)
-  - P/E Ratio
-  - ROE (%)
-  - Debt-to-Equity Ratio
-  - Dividend Yield (%)
-  - Revenue Growth (%)
-  - EPS Growth (%)
-  - Current Ratio
-  - Gross Margin (%)
+1. **Upload Data**:
+   - Use the sidebar to upload your CSV file containing stock data
+   - Ensure your CSV has the required columns matching the available metrics
 
-## Disclaimer
+2. **Enter Screening Conditions**:
+   ```
+   Market Capitalization > 100 AND
+   ROE > 15 AND
+   EPS Growth > 10
+   ```
 
-This project is for educational purposes only and should not be taken as financial advice. Always conduct your own research before making any investment decisions.
+3. **View Results**:
+   - Filtered stocks table
+   - Summary statistics
+   - Distribution analysis
+   - Correlation heatmap
 
-## Future Improvements
+### AI Analysis
 
-- Implement additional filtering options (e.g., by industry, sector)
-- Integrate with financial data APIs for real-time data access
-- Enhance the Generative AI analysis capabilities
-- Will be implementing Voice Models so that you can talk with the data
+1. Navigate to the "Talk with CSV" tab
+2. Enter your question about the data
+3. Click "Analyze" to get AI-powered insights
+
+## Example Queries
+
+### Large Cap Growth Stocks
+```
+Market Capitalization > 100 AND
+ROE > 15 AND
+EPS Growth > 10
+```
+
+### Dividend Value Stocks
+```
+Dividend Yield > 2 AND
+P/E Ratio < 20 AND
+Debt-to-Equity Ratio < 1
+```
+
+## Data Format Requirements
+
+Your CSV file should include the following columns:
+- Market Capitalization (B)
+- P/E Ratio
+- ROE (%)
+- Debt-to-Equity Ratio
+- Dividend Yield (%)
+- Revenue Growth (%)
+- EPS Growth (%)
+- Current Ratio
+- Gross Margin (%)
+
+## Implementation Details
+
+### Key Classes
+
+#### StockScreener
+- Handles data processing and filtering
+- Manages metric mappings and condition parsing
+- Creates visualizations and statistical analysis
+- Integrates with Gemini Pro for AI analysis
+
+### Data Processing
+- Column name cleaning and standardization
+- Robust condition parsing and validation
+- Error handling for invalid inputs
+- Support for multiple numerical operators
+
+### Visualization
+- Distribution plots with KDE curves
+- Correlation analysis using heatmaps
+- Interactive Plotly charts
+- Responsive design for different screen sizes
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Inspired by [Screener.in](https://www.screener.in/)
+- Built with [Streamlit](https://streamlit.io/)
+- Powered by [Google Gemini Pro](https://ai.google.dev/)
+
+## Support
+
+For support, please open an issue in the repository or contact [vikramaditya1533@gmail.com]
