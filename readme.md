@@ -4,7 +4,7 @@ A powerful web-based stock screening tool built with Streamlit and Python, inspi
 
 🔗 Live Demo: [Stock Screener Application](https://vikramaditya144-intelligent-stock-screener-app-qpvfp6.streamlit.app/)
 
-https://www.loom.com/share/533c924bafc346daa2f47a24f2c67dda
+https://www.loom.com/share/6f99e373b53f4cf1b48207c25a277897
 
 ## Features
 
